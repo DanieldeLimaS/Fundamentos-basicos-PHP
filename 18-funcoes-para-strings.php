@@ -6,19 +6,21 @@ strtoupper - deixa o texto em caixa alta(maiusculo)
 strtolower - deixa o texto em caixa baixa(minusculo)
 substr - retorma uma parte de uma string
 str_pad - complementa uma outra string com uma quantidade especificada de caracteres
-str_repeat
-strlen
-str_replace
-strpos
-*/
+str_repeat - serve para repetir string
+strlen - retorna a quantidade de digitos ou numero de posições de uma string
+str_replace - serve para substituir uma palavra em um texto
+str_pos - exibe a posição de uma string*/
 
+
+
+//strtoupper - deixa o texto em caixa alta(maiusculo)
 $nome = "Daniel de Lima";
 $maiusculo = strtoupper($nome);
 echo "<b>STRTOUPPER</b><BR>";
 echo $maiusculo;
 echo "<hr>";
 
-
+//strtolower - deixa o texto em caixa baixa(minusculo)
 echo "<b>STRTOLOWER</b><BR>";
 $nome = strtoupper($nome);//converte para maiusculo
 echo $nome;
@@ -27,7 +29,7 @@ $minusculo = strtolower($nome);//coverte para minusculo
 echo $minusculo;
 echo "<hr>";
 
-
+//substr - retorma uma parte de uma string
 echo "<b>SUBSTR</b><BR>";
 echo $nome;
 echo "<br>";
@@ -50,3 +52,27 @@ echo $strpad3;
 echo"<br>";
 echo "<hr>";
 
+
+//str_repeat - serve para repetir string
+echo "<b>STR_REPEAT</b><br>";
+$string = str_repeat("sucesso!", 5);
+echo $string;
+echo "<hr>";
+
+//strlen - retorna a quantidade de digitos ou numero de posições de uma string
+
+echo "<b>STRLEN</b><br>";
+$mensagem = "Olá mundo";
+echo "quantidade de posições na string:".	strlen($mensagem);
+echo "<hr>";
+
+//str_replace - serve para substituir uma palavra em um texto
+echo "<b>STR_REPLACE</b><br>";
+$texto="Usando Funções para strings";
+$novotexto= str_replace("Funções", "(FUNCOES)",$texto);
+echo $novotexto;
+echo "<hr>";
+
+//str_pos - exibe a posição de uma string
+echo "<b>STR_POS</b><br>";
+echo strpos($texto, "strings");
