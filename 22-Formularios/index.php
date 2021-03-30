@@ -13,8 +13,16 @@
 		FILTER_VALIDATE_FLOAT
 		FILTER_VALIDATE_IP
 		FILTER_VALIDATE_URL
+	
+		FILTROS DE LIMPESA - SANITIZAÇÃO
+		Funções(filter_input - filter_var)
 
-		
+		FILTER_SANITIE_ESPECIAL_CHARS
+		FILTER_SANITIZE_INT
+		FILTER_SANITIZE_EMAIL
+		FILTER_SANITIZE_URL
+
+
 		*/
 	 ?>
 
@@ -23,18 +31,17 @@
 	 	if(isset($_POST['enviar-formulario'])):
 	 		//array de erros
 	 		$erros=array();
+	 		//SANITIZE
+
+
 	 		//PROCESSO DE VALIDAÇÕES DOS CAMPOS
-	 		if(!$idade=filter_input(INPUT_POST, "idade",FILTER_VALIDATE_INT))
-	 			$erros[]="Idade precisa ser um numero inteiro.";
+	 		$nome=filter_input(INPUT_POST, "nome");
+	 		if(empty($nome))
+	 			$erros[]="Informe um nome";
 
 	 		if(!$email=filter_input(INPUT_POST, "email",FILTER_VALIDATE_EMAIL))
 	 			$erros[]="Email informado está invalido.";
 
-	 		if(!$peso=filter_input(INPUT_POST, "peso",FILTER_VALIDATE_FLOAT))
-	 			$erros[]="O peso precisa ser float.";
-
-	 		if(!$ip=filter_input(INPUT_POST, "ip",FILTER_VALIDATE_IP))
-	 			$erros[]="IP inválido.";
 
 	 		if(!$url=filter_input(INPUT_POST, "url",FILTER_VALIDATE_URL))
 	 			$erros[]="Informe uma URL válida.";
@@ -51,10 +58,8 @@
 	 ?>
 	 
 	 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-	 	Idade:<input type="text" name="idade"><br>
+	 	Idade:<input type="text" name="nome"><br>
 	 	Email:<input type="Email" name="email"><br>
-	 	Peso:<input type="text" name="peso"><br>
-	 	IP:<input type="text" name="ip"><br>
 	 	URL:<input type="text" name="url"><br>
 	 	<button type="submit" name="enviar-formulario">Enviar</button><br>
 	 	
